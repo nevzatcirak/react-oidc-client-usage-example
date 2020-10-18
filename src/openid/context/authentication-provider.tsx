@@ -82,7 +82,7 @@ export const AuthenticationProvider = (props: AuthenticationProviderProps) => {
     oidcReducer,
     setDefaultState(props.configuration)
   );
-
+  
   useEffect(() => {
     dispatch({ type: "ON_LOADING" });
     addOidcEvents({
