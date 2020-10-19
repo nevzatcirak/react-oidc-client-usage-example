@@ -16,7 +16,7 @@ export class AuthenticationService {
     this.configuration = configuration;
     this.userManager = new UserManager(configuration);
     Log.logger = console;
-    Log.level = Log.INFO;
+    Log.level = Log.DEBUG;
   }
 
   /**

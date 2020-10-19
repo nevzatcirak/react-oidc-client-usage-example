@@ -5,11 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider, WebStorageStateStore } from './openid/index';
+import { AuthProvider, WebStorageStateStore, UserManager, AuthenticationService } from './openid/index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-toastify/dist/ReactToastify.css';
-
 
 export const webStorageStateStore = new WebStorageStateStore({ store: window.localStorage });
 

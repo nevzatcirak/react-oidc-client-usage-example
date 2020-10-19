@@ -19,7 +19,3 @@
 .App-intro {
   font-size: large;
 }
-
-#toast-container > div {
-  opacity: 1;
-}
