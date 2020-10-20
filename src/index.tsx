@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider, WebStorageStateStore, UserManager, AuthenticationService } from './openid/index';
+import { ComposedAuthProvider, WebStorageStateStore } from './openid/index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,12 +25,12 @@ export const configuration = {
 ReactDOM.render(
   <React.StrictMode>
      <BrowserRouter>
-      <AuthProvider
+      <ComposedAuthProvider
         configuration={configuration}
         isActive={true}
       >
         <App />
-      </AuthProvider>
+      </ComposedAuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

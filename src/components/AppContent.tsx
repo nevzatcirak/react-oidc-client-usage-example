@@ -2,10 +2,10 @@ import * as React from "react";
 
 import AuthContent from "./AuthContent";
 import Buttons from "./Buttons";
-import { useOidcAuthentication } from "../openid";
+import { useAuthentication } from "../openid";
 
 export default function AppContent() {
-  const { oidcUser, logout, renewToken } = useOidcAuthentication();
+  const { oidcUser, logout, renewToken } = useAuthentication();
 
   const getUser = () => {
     return oidcUser;
