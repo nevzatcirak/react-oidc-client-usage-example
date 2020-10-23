@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
-import { ComposedAuthProvider, WebStorageStateStore } from './openid/index';
+// import { ComposedAuthProvider, WebStorageStateStore } from './openid';
+import { ComposedAuthProvider, WebStorageStateStore } from '@nevzatcirak/react-oidc-client';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
