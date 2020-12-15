@@ -5,8 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
-// import { ComposedAuthProvider, WebStorageStateStore } from './openid';
-import { ComposedAuthProvider, WebStorageStateStore } from '@nevzatcirak/react-oidc-client';
+import { ComposedAuthProvider, WebStorageStateStore } from './openid';
+// import { ComposedAuthProvider, WebStorageStateStore } from '@nevzatcirak/react-oidc-client';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,13 +14,14 @@ export const webStorageStateStore = new WebStorageStateStore({ store: window.loc
 
 export const configuration = {
   client_id: "react",
-  redirect_uri: "http://localhost:3000/authentication/callback",
+  redirect_uri: "http://localhost:3000/auth-callback",
   response_type: "code",
   post_logout_redirect_uri: "http://localhost:3000/",
   scope: "openid profile email",
-  authority: "http://localhost:8080/auth/realms/master",
-  silent_redirect_uri: "http://localhost:3000/authentication/silent_callback",
-  userStore: webStorageStateStore,
+  authority: "http://keycloak.localhost/auth/realms/master",
+  silent_redirect_uri: "http://localhost:3000/auth-silent-callback",
+  revokeAccessTokenOnSignout: true,
+  userStore: webStorageStateStore
 };
 
 ReactDOM.render(

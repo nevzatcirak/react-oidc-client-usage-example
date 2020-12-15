@@ -17,7 +17,7 @@ export interface ComposedAuthProviderProps {
 
 export const ComposedAuthProvider = (props: ComposedAuthProviderProps) => {
   const history = useHistory();
-
+  
   const checkProviderActivity = () => {
     if (getBoolValue(props.isActive))
       return (
