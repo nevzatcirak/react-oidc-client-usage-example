@@ -12,14 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({ store: window.localStorage });
 
+const rootPath = "http://localhost/whiteboard/openid";
+
 export const configuration = {
   client_id: "react",
-  redirect_uri: "http://localhost:3000/auth-callback",
+  redirect_uri: rootPath + "/auth-callback",
   response_type: "code",
-  post_logout_redirect_uri: "http://localhost:3000/",
+  post_logout_redirect_uri: rootPath,
   scope: "openid profile email",
-  authority: "http://keycloak.localhost/auth/realms/master",
-  silent_redirect_uri: "http://localhost:3000/auth-silent-callback",
+  authority: "http://localhost:8090/auth/realms/master",
+  silent_redirect_uri: rootPath + "/auth-silent-callback",
   revokeAccessTokenOnSignout: true,
   userStore: webStorageStateStore
 };

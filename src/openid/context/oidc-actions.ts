@@ -17,6 +17,8 @@ export const onError = (dispatch: Dispatch<Action>, error: Error) => {
 };
 
 export const onUserLoaded = (dispatch: Dispatch<Action>, user: User) => {
+  window.localStorage.setItem("access_token", user.access_token);
+  window.localStorage.setItem("id_token", user.id_token);
   dispatch({ type: "ON_LOAD_USER", user });
 };
 
@@ -33,6 +35,8 @@ export const onAccessTokenExpired = async (
   userManager: UserManager
 ) => {
   /* const user: User | null = await userManager?.getUser?.();
+  window.localStorage.setItem("access_token", user.access_token);
+  window.localStorage.setItem("id_token", user.id_token);
   dispatch({ type: "ON_LOAD_USER", user}); */
   await userManager.signinSilent();
 };
@@ -60,7 +64,7 @@ export const addOidcEvents = ({
   });
   userManager.events.addAccessTokenExpired(() => {
     customEvents?.onAccessTokenExpired?.(userManager);
-    onAccessTokenExpired(/* dispatch,  */userManager);
+    onAccessTokenExpired(/* dispatch,  */ userManager);
   });
 
   if (customEvents?.onAccessTokenExpiring) {
@@ -69,7 +73,9 @@ export const addOidcEvents = ({
     );
   }
   if (customEvents?.onUserSessionChanged) {
-    userManager.events.addUserSessionChanged(() => customEvents?.onUserSessionChanged?.(userManager));
+    userManager.events.addUserSessionChanged(() =>
+      customEvents?.onUserSessionChanged?.(userManager)
+    );
   }
 };
 
@@ -96,7 +102,7 @@ export const removeOidcEvents = ({
   });
   userManager.events.removeAccessTokenExpired(() => {
     customEvents?.onAccessTokenExpired?.(userManager);
-    onAccessTokenExpired(/* dispatch,  */userManager);
+    onAccessTokenExpired(/* dispatch,  */ userManager);
   });
 
   if (customEvents?.onAccessTokenExpiring) {
@@ -106,8 +112,8 @@ export const removeOidcEvents = ({
   }
 
   if (customEvents?.onUserSessionChanged) {
-    userManager.events.removeUserSessionChanged(
-      () => customEvents?.onUserSessionChanged?.(userManager)
+    userManager.events.removeUserSessionChanged(() =>
+      customEvents?.onUserSessionChanged?.(userManager)
     );
   }
 };

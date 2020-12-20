@@ -82,7 +82,7 @@ export const AuthenticationProvider = (props: AuthenticationProviderProps) => {
     oidcReducer,
     setDefaultState(props.configuration)
   );
-  
+
   useEffect(() => {
     dispatch({ type: "ON_LOADING" });
     addOidcEvents({
@@ -94,6 +94,8 @@ export const AuthenticationProvider = (props: AuthenticationProviderProps) => {
       if (!user) {
         return;
       }
+      window.localStorage.setItem("access_token", user.access_token);
+      window.localStorage.setItem("id_token", user.id_token);
       dispatch({ type: "ON_LOAD_USER", user });
     });
     return () =>
@@ -123,10 +125,11 @@ export const AuthenticationProvider = (props: AuthenticationProviderProps) => {
         oidcUser,
         error,
         authenticating,
-        login: useCallback((force?: boolean) => login(dispatch, history.location, history)(force), [
-          history,
-          oidcState.userManager,
-        ]),
+        login: useCallback(
+          (force?: boolean) =>
+            login(dispatch, history.location, history)(force),
+          [history, oidcState.userManager]
+        ),
         logout: useCallback(() => logout(dispatch)(), [oidcState.userManager]),
         renewToken: useCallback(() => renewToken()(), [oidcState.userManager]),
       }}
@@ -135,10 +138,7 @@ export const AuthenticationProvider = (props: AuthenticationProviderProps) => {
         unauthenticated={unauthenticated}
         unauthorized={unauthorized}
         callbackComponent={
-          <CallbackContainer
-            authenticated={authenticated}
-            history={history}
-          />
+          <CallbackContainer authenticated={authenticated} history={history} />
         }
         sessionlost={
           <SessionLostContainer
