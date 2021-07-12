@@ -12,15 +12,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({ store: window.localStorage });
 
-const rootPath = "http://localhost/whiteboard/openid";
+const rootPath = "http://localhost:3001";
 
 export const configuration = {
-  client_id: "react",
+  client_id: "oidc-auth",
   redirect_uri: rootPath + "/auth-callback",
   response_type: "code",
   post_logout_redirect_uri: rootPath,
   scope: "openid profile email",
-  authority: "http://localhost:8090/auth/realms/master",
+  authority: "http://localhost/hydra",
   silent_redirect_uri: rootPath + "/auth-silent-callback",
   revokeAccessTokenOnSignout: true,
   userStore: webStorageStateStore
