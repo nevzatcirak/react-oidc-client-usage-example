@@ -12,14 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({ store: window.localStorage });
 
+const host = "http://cirak.localhost:3001";
+
 export const configuration = {
-  client_id: "react",
-  redirect_uri: "http://localhost:3000/auth-callback",
+  client_id: "oidc-auth",
+  redirect_uri: host + "/auth-callback",
   response_type: "code",
-  post_logout_redirect_uri: "http://localhost:3000/",
+  post_logout_redirect_uri: host,
   scope: "openid profile email",
-  authority: "http://keycloak.localhost/auth/realms/master",
-  silent_redirect_uri: "http://localhost:3000/auth-silent-callback",
+  authority: "http://cirak.localhost/hydra",
+  silent_redirect_uri: host + "/auth-silent-callback",
   revokeAccessTokenOnSignout: true,
   userStore: webStorageStateStore
 };
