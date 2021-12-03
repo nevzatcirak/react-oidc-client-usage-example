@@ -2,7 +2,7 @@ import * as React from "react";
 
 import AuthContent from "./AuthContent";
 import Buttons from "./Buttons";
-// import { useAuthentication } from "@nevzatcirak/react-oidc-client";
+// import { useAuthentication } from "@infra/react-oidc-client";
 import { useAuthentication } from "../openid";
 
 import axios from '../axios-config';

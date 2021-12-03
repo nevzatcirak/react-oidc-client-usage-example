@@ -1,39 +1,43 @@
-import { History } from 'history'
-import React, { ReactNode, useEffect } from 'react'
-import { AuthenticationService } from '../services/authentication-service'
+import {History} from 'history'
+import React, {ReactNode, useEffect} from 'react'
+import {AuthenticationService} from '../services/authentication-service'
 
 export const Callback = () => (
-  <div>
     <div>
-      Authentication complete
+        <div>
+            Authentication complete
+        </div>
+        <div>You will be redirected to your application.</div>
     </div>
-    <div >You will be redirected to your application.</div>
-  </div>
 )
 
 type CallbackContainerProps = {
-  authenticated?: ReactNode
-  history: History
+    authenticated?: ReactNode
+    history: History
 }
 
-export const CallbackContainer = ({ authenticated, history }: CallbackContainerProps) => {
-  useEffect(() => {
-    async function signIn() {
-      const authService : AuthenticationService = AuthenticationService.getInstance();
-      try {
-        const user = await authService.getUserManager()!.signinRedirectCallback()
-        if (user.state.url) {
-          history.push(user.state.url)
-        } else {
-          console.warn('no location in state')
+export const CallbackContainer = ({authenticated, history}: CallbackContainerProps) => {
+    useEffect(() => {
+        async function signIn() {
+            const authService: AuthenticationService = AuthenticationService.getInstance();
+            try {
+                const user = await authService.getUserManager()!.signinRedirectCallback()
+                if (user.state.url) {
+                    history.push(user.state.url)
+                } else {
+                    console.warn('no location in state')
+                }
+            } catch (error) {
+                if (error?.error === "no_session_mode")
+                    await authService.logout();
+                else
+                    history.push("/")
+                console.error(`Authentication could not be done. Detailed message : ${error.message}`)
+            }
         }
-      } catch (error) {
-        console.error(`Authentication could not be done. Detailed message : ${error.message}`)
-      }
-    }
 
-    signIn()
-  }, [history])
+        signIn()
+    }, [history])
 
-  return authenticated ? <>{authenticated}</> : <Callback />
+    return authenticated ? <>{authenticated}</> : <Callback/>
 }
