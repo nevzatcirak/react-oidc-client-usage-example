@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import {useRef} from 'react';
 
 export function getBoolValue(val: any){
     switch (typeof val) {
@@ -9,7 +9,7 @@ export function getBoolValue(val: any){
       default:
         return false;
     }
-  };
+  }
 
   
 export const useComponentWillMount = (func: Function) => {

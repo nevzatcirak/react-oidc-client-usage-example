@@ -1,4 +1,4 @@
-import {History, Location} from "history";
+import {Location} from "history";
 import {User, UserManager} from "oidc-client";
 import {Dispatch} from "react";
 import {CustomEvents} from "./authentication-provider";
@@ -39,6 +39,9 @@ export const onAccessTokenExpired = async (
             return await userManager.signinSilent();
         } catch (e) {
             console.log(e);
+            await userManager.signinRedirect({
+                prompt: "login"
+            });
         }
     }
 };
@@ -129,12 +132,11 @@ export const logout = (dispatch: Dispatch<Action>) => async () => {
 
 export const login = (
     dispatch: Dispatch<Action>,
-    location: Location,
-    history: History
+    location: Location
 ) => async (force?: boolean) => {
     dispatch({type: "ON_LOADING"});
     const authService: AuthenticationService = AuthenticationService.getInstance();
-    await authService.authenticate(location, history)(!!force);
+    await authService.authenticate(location)(!!force);
 };
 
 export const renewToken = () => async () => {

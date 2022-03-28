@@ -1,8 +1,5 @@
-import {
-  UserManager,
-  UserManagerSettings,
-  WebStorageStateStore,
-} from "oidc-client";
+import {UserManager, UserManagerSettings, WebStorageStateStore,} from "oidc-client";
+
 export * from "./context/authentication-provider";
 export * from "./secure-app";
 export * from "./composed-auth-provider";

@@ -1,11 +1,11 @@
 import {Log, User, UserManager, UserManagerSettings} from "oidc-client";
-import {History, Location} from 'history';
+import {Location} from 'history';
 
 export class AuthenticationService {
     private static instance: AuthenticationService;
     public userManager: UserManager;
     private userRequested: Boolean = false;
-    private numberAuthentication: number = 0;
+    // private numberAuthentication: number = 0;
     private configuration: UserManagerSettings;
 
     /**
@@ -55,6 +55,13 @@ export class AuthenticationService {
     }
 
     /**
+     * Gets user manager settings of oidc client
+     */
+    public getConfiguration(): UserManagerSettings {
+        return this.configuration;
+    }
+
+    /**
      * Authenticate oidc user
      * @param user
      * @param location
@@ -62,7 +69,6 @@ export class AuthenticationService {
      */
     public authenticate(
         location: Location,
-        history: History,
         user: User | null = null,
     ): any {
         return async (isForce = false, callbackPath: string | null = null) => {
@@ -70,30 +76,15 @@ export class AuthenticationService {
             if (!oidcUser) {
                 oidcUser = await this.userManager.getUser()
             }
-            if (this.userRequested) {
+            if (this.userRequested)
                 return
-            }
-            this.numberAuthentication++
             const url = callbackPath || location.pathname + (location.search || '')
             if (this.isRequireSignin(oidcUser, isForce)) {
                 this.userRequested = true
-                await this.userManager.signinRedirect({data: {url}})
-                this.userRequested = false
-            } else {
-                this.userRequested = true
-                try {
-                    await this.userManager.signinSilent()
-                } catch (error) {
-                    if (this.numberAuthentication <= 1) {
-                        await this.userManager.signinRedirect({
-                            data: {url},
-                            id_token_hint: oidcUser ? oidcUser.id_token : null
-                        })
-                    } else {
-                        this.userRequested = false
-                        history.push(`/session-lost?path=${encodeURI(url)}`)
-                    }
-                }
+                await this.userManager.signinRedirect({
+                    data: {url},
+                    id_token_hint: oidcUser ? oidcUser.id_token : null
+                })
                 this.userRequested = false
             }
         }
@@ -119,8 +110,12 @@ export class AuthenticationService {
         if (oidcUser) {
             try {
                 return await this.userManager.signinSilent();
-            }catch(error){
+            } catch (error) {
                 console.error(error)
+                //@TODO Decide after talking to HAP team
+                /*await this.userManager.signinRedirect({
+                    prompt: "login"
+                });*/
             }
         }
     }

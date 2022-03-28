@@ -1,12 +1,7 @@
-import {
-  AuthenticationProvider,
-  SecureApp,
-  UserManagerSettings,
-  CustomEvents,
-} from "./index";
-import React, { ReactNode } from "react";
-import { useHistory } from "react-router-dom";
-import { getBoolValue } from "./utils/common-utils";
+import {AuthenticationProvider, CustomEvents, SecureApp, UserManagerSettings,} from "./index";
+import React, {ReactNode} from "react";
+import {useHistory} from "react-router-dom";
+import {getBoolValue} from "./utils/common-utils";
 
 export interface ComposedAuthProviderProps {
   children: ReactNode;

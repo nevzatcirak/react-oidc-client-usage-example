@@ -16,6 +16,21 @@ type CallbackContainerProps = {
     history: History
 }
 
+const handleError = async (type: String, message: String, history: History, authService: AuthenticationService) => {
+    try {
+        if (type === "login_required" || type === "invalid_request") {
+            await authService.authenticate(history.location)
+        } else if (!!authService?.getConfiguration?.()?.post_logout_redirect_uri)
+            //@ts-ignore
+            window.location.href = authService.getConfiguration().post_logout_redirect_uri || "/";
+        else
+            history.push("/")
+        console.error(`Authentication could not be done. Error type: ${type}, Detailed message : ${message}`)
+    } catch (e) {
+        await authService.logout();
+    }
+}
+
 export const CallbackContainer = ({authenticated, history}: CallbackContainerProps) => {
     useEffect(() => {
         async function signIn() {
@@ -28,11 +43,7 @@ export const CallbackContainer = ({authenticated, history}: CallbackContainerPro
                     console.warn('no location in state')
                 }
             } catch (error) {
-                if (error?.error === "no_session_mode")
-                    await authService.logout();
-                else
-                    history.push("/")
-                console.error(`Authentication could not be done. Detailed message : ${error.message}`)
+                await handleError(error.error, error.message, history, authService);
             }
         }
 

@@ -12,14 +12,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({store: window.localStorage});
 
-const rootPath = "http://localhost:3001";
+const rootPath = "https://tbgth-local/test";
 
 export const configuration = {
-    client_id: "auth-test1",
+    client_id: "test",
     redirect_uri: rootPath + "/authentication-callback",
     response_type: "code",
     post_logout_redirect_uri: rootPath,
-    scope: "openid",
+    scope: "openid offline_access",
     authority: "https://tbgth-local/auth",
     silent_redirect_uri: rootPath + "/authentication-silent_callback",
     accessTokenExpiringNotificationTime: 5,

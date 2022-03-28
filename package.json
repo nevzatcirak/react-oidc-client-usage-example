@@ -2,6 +2,7 @@
   "name": "react-oidc-client-usage-example",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/test",
   "dependencies": {
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -30,10 +31,11 @@
     "@types/axios": "0.14.0",
     "@types/ramda": "0.27.11",
     "@types/react-json-tree": "0.6.11",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "cross-env": "7.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PUBLIC_URL=/test react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

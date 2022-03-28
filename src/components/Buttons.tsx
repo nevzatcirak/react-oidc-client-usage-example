@@ -14,7 +14,9 @@ const Buttons: React.SFC<IButtonsProps> = props => {
         <button className="btn btn-secondary btn-getuser" style={{ margin: '10px' }} onClick={props.getUser}>
           Get User info
         </button>
-        <button className="btn btn-success btn-renewtoken" style={{ margin: '10px' }} onClick={props.renewToken}>
+        <button className="btn btn-success btn-renewtoken" style={{ margin: '10px' }} onClick={async () => {
+          await props.renewToken()
+        }}>
           Renew Token
         </button>
         <button className="btn btn-dark btn-logout" style={{ margin: '10px' }} onClick={props.logout}>
