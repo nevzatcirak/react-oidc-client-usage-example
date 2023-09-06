@@ -5,14 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import {BrowserRouter} from "react-router-dom";
-import {ComposedAuthProvider, WebStorageStateStore} from './openid';
-// import { ComposedAuthProvider, WebStorageStateStore } from '@infra/react-oidc-client';
+// import {ComposedAuthProvider, WebStorageStateStore} from './openid';
+import { ComposedAuthProvider, WebStorageStateStore } from '@nevzatcirak/react-oidc-client';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({store: window.localStorage});
 
-const rootPath = "https://tbgth-local/test";
+const rootPath = window.location.origin + "/test";
 
 export const configuration = {
     client_id: "test",
@@ -20,7 +20,7 @@ export const configuration = {
     response_type: "code",
     post_logout_redirect_uri: rootPath,
     scope: "openid offline_access",
-    authority: "https://tbgth-local/auth",
+    authority: window.location.origin + "/oauth2",
     silent_redirect_uri: rootPath + "/authentication-silent_callback",
     accessTokenExpiringNotificationTime: 5,
     automaticSilentRenew: true,
