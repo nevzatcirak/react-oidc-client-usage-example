@@ -12,16 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const webStorageStateStore = new WebStorageStateStore({store: window.localStorage});
 
-const rootPath = window.location.origin + "/test";
+const rootPath = window.location.origin + "/test/";
 
 export const configuration = {
     client_id: "test",
-    redirect_uri: rootPath + "/authentication-callback",
+    redirect_uri: rootPath + "authentication-callback",
     response_type: "code",
     post_logout_redirect_uri: rootPath,
     scope: "openid offline_access",
     authority: window.location.origin + "/oauth2",
-    silent_redirect_uri: rootPath + "/authentication-silent_callback",
+    silent_redirect_uri: rootPath + "authentication-silent_callback",
     accessTokenExpiringNotificationTime: 5,
     automaticSilentRenew: true,
     userStore: webStorageStateStore
