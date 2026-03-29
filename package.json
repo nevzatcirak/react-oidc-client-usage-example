@@ -1,6 +1,6 @@
 {
   "name": "react-oidc-client-usage-example",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": ".",
   "dependencies": {
     "react": "^17.0.2",
@@ -36,8 +36,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "docker build -t nevzatcirak/react-oidc-client-basic-app:0.2.0 .",
-    "push": "npm run build && docker push nevzatcirak/react-oidc-client-basic-app:0.2.0",
+    "postbuild": "docker build -t nevzatcirak/react-oidc-client-basic-app:0.2.1 .",
+    "push": "npm run build && docker push nevzatcirak/react-oidc-client-basic-app:0.2.1",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
