@@ -3,7 +3,7 @@ name: "Dashboard Release"
 on:
   push:
     branches:
-      - "develop"
+      - "development"
 
 permissions:
   contents: write
