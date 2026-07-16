@@ -1,4 +1,4 @@
-import { User, UserManager } from "oidc-client";
+import {User, UserManager} from "oidc-client";
 
 export type Action =
   | { type: "ON_ERROR"; message: string }

@@ -1,0 +1,58 @@
+<svg data-v-6805eed4="" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%" viewBox="0 0 340.000000 250.000000" preserveAspectRatio="xMidYMid meet"
+     color-interpolation-filters="sRGB" style="margin: auto;display: none;">
+    <g fill="#333333" class="iconlettersvg-g iconlettersvg"
+       transform="translate(50,50)">
+        <g>
+            <g class="tp-name" transform="translate(0,0)">
+                <g transform="scale(2.9)">
+                    <g transform="translate(0, 0)">
+                        <g class="name-imagesvg">
+                            <g>
+                                <rect fill="#333333" fill-opacity="0" stroke-width="2" x="0" y="0"
+                                      width="36.86100698498948" height="50" class="image-rect"></rect>
+                                <svg x="0" y="0" width="36.86100698498948" height="50"
+                                     class="image-svg-svg primary" style="overflow: visible;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.45 23.67">
+                                        <path fill="#38b137" d="M0 0v23.67h3.45v-13.4l9.88 13.4h4.12L0 0z"></path>
+                                        <path fill="#333333" d="M14 0h3.45v8.35H14z"></path>
+                                    </svg>
+                                </svg> <!---->
+                            </g>
+                        </g>
+                    </g>
+                    <g transform="translate(31.86100698498948, 0)">
+                        <g class="name-imagesvg">
+                            <g>
+                                <rect fill="#333333" fill-opacity="0" stroke-width="2" x="0" y="0"
+                                      width="26.953950544472686" height="50" class="image-rect"></rect>
+                                <svg x="0" y="0" width="26.953950544472686" height="50"
+                                     class="image-svg-svg primary" style="overflow: visible;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.76 23.67">
+                                        <path d="M0 10.14h12.76v3.17H3.45v7.19h9.31v3.17H0z" fill="#333333"></path>
+                                        <path fill="#fa3913" d="M0 0h12.76v3.17H0z"></path>
+                                    </svg>
+                                </svg> <!---->
+                            </g>
+                        </g>
+                    </g>
+                    <g transform="translate(53.81495752946216, 0)">
+                        <g class="name-imagesvg">
+                            <g>
+                                <rect fill="#333333" fill-opacity="0" stroke-width="2" x="0" y="0"
+                                      width="47.5073926882713" height="50" class="image-rect"></rect>
+                                <svg x="0" y="0" width="47.5073926882713" height="50"
+                                     class="image-svg-svg primary" style="overflow: visible;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.49 23.67">
+                                        <path fill="#3780ff" d="M12.85 18.18l-1.61 5.49L0 0h4.22l8.63 18.18z"></path>
+                                        <path fill="#fcbd05" d="M18.27 0h4.22l-4.94 10.41h-4.22L18.27 0z"></path>
+                                    </svg>
+                                </svg> <!---->
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

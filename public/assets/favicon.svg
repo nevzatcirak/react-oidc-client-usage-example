@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg data-v-6805eed4="" version="1.0" width="100%" height="100%" viewBox="0 0 135.000000 199.000000" preserveAspectRatio="xMidYMid meet" color-interpolation-filters="sRGB" style="margin: auto;" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#333333" class="iconlettersvg-g iconlettersvg" transform="translate(50,50)">
+    <g>
+      <g class="tp-name" transform="translate(0,0)">
+        <g transform="scale(2.9)">
+          <g transform="translate(0, 0)">
+            <g class="name-imagesvg">
+              <g>
+                <rect fill="#333333" fill-opacity="0" stroke-width="2" x="0" y="0" width="36.86100698498948" height="50" class="image-rect"/>
+                <svg x="0" y="0" width="36.86100698498948" height="50" class="image-svg-svg primary" style="overflow: visible;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.45 23.67">
+                    <path fill="#38b137" d="M0 0v23.67h3.45v-13.4l9.88 13.4h4.12L0 0z"/>
+                  </svg>
+                </svg>
+              </g>
+            </g>
+          </g>
+          <g transform="matrix(1, 0, 0.259087, 1, 0.016576, 0)" style="">
+            <g class="name-imagesvg">
+              <g>
+                <rect fill="#333333" fill-opacity="0" stroke-width="2" x="0" y="0" width="47.5073926882713" height="50" class="image-rect"/>
+                <svg x="0" y="0" width="47.5073926882713" height="50" class="image-svg-svg primary" style="overflow: visible;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.49 23.67">
+                    <path fill="#3780ff" d="M12.85 18.18l-1.61 5.49L0 0h4.22l8.63 18.18z"/>
+                    <path fill="#fcbd05" d="M 14.572 -0.731 L 18.618 -0.731 L 15.874 9.679 L 11.828 9.679 L 14.572 -0.731 Z" style=""/>
+                  </svg>
+                </svg>
+              </g>
+            </g>
+          </g>
+          <g transform="matrix(0.007165, -0.683363, 1.230521, 0.012901, -9.898984, 37.498063)" style="transform-origin: 13.477px 3.34812px;">
+            <g class="name-imagesvg">
+              <g>
+                <svg x="0" y="0" width="26.953950544472686" height="50" class="image-svg-svg primary" style="overflow: visible;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.76 23.67">
+                    <path fill="#fa3913" d="M 0 0.119 L 12.76 0.119 L 12.76 3.05 L 0 3.05 L 0 0.119 Z" style=""/>
+                  </svg>
+                </svg>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

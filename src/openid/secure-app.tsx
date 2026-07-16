@@ -1,8 +1,7 @@
 import {History} from "history";
-import React, {ReactNode, useEffect } from "react";
-import { useComponentWillMount } from './utils/common-utils';
-import { Authenticating } from './components/authenticating';
-import { useAuthentication } from './use-authentication';
+import React, {ReactNode, useEffect} from "react";
+import {Authenticating} from './components/authenticating';
+import {useAuthentication} from './use-authentication';
 
 type SecureAppProps = {
     children: ReactNode;
@@ -23,8 +22,9 @@ export const SecureApp = ({children}: SecureAppProps) => {
     const {oidcUser, login, authenticating} = context;
 
     useEffect(() => {
-        if(!oidcUser) login(true);
-    },[oidcUser]);
+        if (!oidcUser)
+            login(true);
+    }, [oidcUser]);
 
     const requiredAuth = !oidcUser || oidcUser?.expired === true;
 
